@@ -15,7 +15,11 @@ void delete_stack (int stack []) {
   delete [] stack;
 }
 void print_stack (int stack [], int top) {
+  // vr: mettre des '[' et des '[' pour l'affichage
+  std::cout << '[';
   for (int i=0; i<top;i++){
-        std::cout<< stack[i] << std::endl;
+    // vr: on sépare par un espace pas par un retour à la ligne
+    std::cout<< stack[i] << ' ';
     }
+  std::cout << '[' << std::endl;
 }

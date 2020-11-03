@@ -1,9 +1,6 @@
 #include <iostream>
 #include "stack.h"
 
-
-
-
 bool is_operand (char* token) {
   return ((token[0] >= '0') and (token[0] <= '9'));
 }
@@ -33,6 +30,7 @@ int rpn_eval (int n, char* expr []) {
   int* stack = init_stack(n);
   int top = 0;
   for (int i = 0; i < n; i++) {
+    print_stack(stack, top);
     char* token = expr[i];
     if (is_operand(token))
       push(stack, &top, atoi(token));
