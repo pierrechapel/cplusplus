@@ -100,11 +100,13 @@ public:
                message_code << "__.. ";
                break;
             case ' ' :
-               message_code << "?"; //? symbolise l'espace entre des mots
+               message_code << "? "; //? symbolise l'espace entre des mots
                break;
          }
       buffer.get(lettre);
+      
       }
+      message_code<< "! "; //symbolise la fin du message
    }
    else
    {
@@ -112,6 +114,113 @@ public:
    }
     }
 
+
+
+private:
+string directory_path;
+string name;
+
+
+};
+
+class message_code
+{
+public:
+    message_code (string directory_path, string name) : directory_path(directory_path), name(name){};
+
+    void decode(){
+        ifstream buffer(directory_path + "/" + name );
+        ofstream message_decode( directory_path + "/message_decode.txt");
+        
+        if (buffer and message_decode){
+            string mot;
+            buffer >> mot;
+            while(mot != "!"){
+                if(mot == "._"){
+                    message_decode<< 'a';
+                }
+                if(mot == "_..."){
+                    message_decode<< 'b';
+                }
+                if(mot == "_._."){
+                    message_decode<< 'c';
+                }
+                if(mot == "_.."){
+                    message_decode<< 'd';
+                }
+                if(mot == "."){
+                    message_decode<< 'e';
+                }
+                if(mot == ".._."){
+                    message_decode<< 'f';
+                }
+                if(mot == "__."){
+                    message_decode<< 'g';
+                }
+                if(mot == "...."){
+                    message_decode<< 'h';
+                }
+                if(mot == ".."){
+                    message_decode<< 'i';
+                }
+                if(mot == ".___"){
+                    message_decode<< 'j';
+                }
+                if(mot == "_._"){
+                    message_decode<< 'k';
+                }
+                if(mot == "._.."){
+                    message_decode<< 'l';
+                }
+                if(mot == "__"){
+                    message_decode<< 'm';
+                }
+                if(mot == "_."){
+                    message_decode<< 'n';
+                }
+                if(mot == "___"){
+                    message_decode<< 'o';
+                }
+                if(mot == ".__."){
+                    message_decode<< 'p';
+                }
+                if(mot == "__._"){
+                    message_decode<< 'q';
+                }
+                if(mot == "._."){
+                    message_decode<< 'r';
+                }
+                if(mot == "..."){
+                    message_decode<< 's';
+                }
+                if(mot == "_"){
+                    message_decode<< 't';
+                }
+                if(mot == ".._"){
+                    message_decode<< 'u';
+                }
+                if(mot == "..._"){
+                    message_decode<< 'v';
+                }
+                if(mot == ".__"){
+                    message_decode<< 'w';
+                }
+                if(mot == "_.._"){
+                    message_decode<< 'x';
+                }
+                if(mot == "_.__"){
+                    message_decode<< 'y';
+                }
+                if(mot == "__.."){
+                    message_decode<< 'z';
+                }
+                if(mot == "?"){
+                    message_decode<< ' ';
+                }
+            buffer >> mot;
+            }
+        }
+    };
 
 
 private:
