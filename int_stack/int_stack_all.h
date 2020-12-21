@@ -13,7 +13,13 @@ int_stack (int size ): top(0), size(size){
         throw "une pile de longueur négative, vraiment?";
     }
 }
-
+  
+int_stack (const int_stack& rst) : size(rst.size), top(rst.top), tab(new int [size]) {
+    
+    for(int i=0; i<top;i++){
+        tab[i]=rst.tab[i];
+    }
+}
 
 
 
@@ -53,7 +59,8 @@ void print_stack () {
     std::cout << tab[i] << ' ';
   std::cout << '[' << std::endl;
 }
-void delete_stack(){
+
+~int_stack () {
     delete [] tab;
 }
 
