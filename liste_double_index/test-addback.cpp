@@ -3,8 +3,11 @@
 
 int main(){
     Intlist l;
-    l.add_front(5);
-    l.add_front(5);
+    
+    l.add_back(6);
+    l.add_back(7);
+    
+    
     
     //std::cout<<l.is_empty()<<'\n';
     l.print_list();
