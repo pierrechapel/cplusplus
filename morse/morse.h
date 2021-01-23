@@ -134,8 +134,8 @@ public:
         
         if (buffer and message_decode){
             string mot;
-            buffer >> mot;
-            while(mot != "!"){
+            //buffer >> mot;
+            while(buffer >> mot){
                 if(mot == "._"){
                     message_decode<< 'a';
                 }
@@ -217,15 +217,16 @@ public:
                 if(mot == "?"){
                     message_decode<< ' ';
                 }
-            buffer >> mot;
+            //buffer >> mot;
             }
         }
-    };
+    }
+
+	
 
 
 private:
 string directory_path;
 string name;
-
 
 };
